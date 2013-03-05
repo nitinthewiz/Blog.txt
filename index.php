@@ -51,6 +51,7 @@
 <!doctype html>
 <html lang=en>
 <head>
+<!-- <base target='_blank' /> -->
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css" />
 <link rel="stylesheet" type="text/css" href="css/core.css" /> <!-- Regular stylesheet -->
 
@@ -59,6 +60,39 @@
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.snippet.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/jquery.snippet.min.css" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8982647-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript">
+
+function replaceText() {
+
+bodyText = document.getElementById("body");
+theText = bodyText.innerHTML;
+
+// replace
+
+theText = theText.replace(/:\)/g,'<img src="img/gif/icon_smile.gif">');
+theText = theText.replace(/;\)/g,'<img src="img/gif/icon_wink.gif">');
+theText = theText.replace(/:D/g,'<img src="img/gif/icon_biggrin.gif">');
+theText = theText.replace(/:\(/g,'<img src="img/gif/icon_sad.gif">');
+
+bodyText.innerHTML = theText;
+
+$(".title a").attr("target","_blank");
+
+}
+</script>
 
 <title><?php echo $title ?></title>
 
@@ -68,9 +102,9 @@
 
 <meta name="description" content="<?php echo $description; ?>" />
 <meta name="author" content="<?php echo $author; ?>" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1; user-scalable=0" />	<!-- Especially helpful for mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />	<!-- Especially helpful for mobile devices -->
 </head>
-<body>
+<body id="body" onload="replaceText();">
 	<!--
 	<form name="uploader" action="index.php" method="post" enctype="multipart/form-data" >
 		<input type="file" name="file_upload" onchange="document.uploader.submit()" style="background:#ff0000;position:fixed;top:0;right:0;height:100%;width:256px;opacity:0;" />
@@ -94,6 +128,8 @@
 	-->
 
 	<h3 class="blogtitle"><a href="./"><?php echo $title; ?></a></h3>
+	<h1 class="blogfeed"><a class="blogfeed" href="./rss.php">RSS</a><br><script type="text/javascript" src="searchpath.js"></script></h1>
+	
 	<?php
 	/*
 	bool signedIn = true;	//	Just for testing
@@ -117,7 +153,7 @@
 			</article>
 		<?php elseif ( count($posts) != 0 ):	//	For multiple posts ?>
 			<?php foreach($paginator->itemsForPage($posts) as $post): ?>
-				<article class="content" id="<?php echo $i; // article id ?>">
+				<article class="content" id="<?php // echo $i; // article id ?>">
 					<span class="date">
 						<a href="?p=<?php echo urlencode($post->getBasename()); ?>">
 							<?php echo $post->date; ?>

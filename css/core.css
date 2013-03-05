@@ -2,6 +2,9 @@
 Copyright (c) 2012, Matt Zanchelli
 All rights reserved.
 
+Edited by Nitin Khanna
+Mar 5 2013
+
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 	* Redistributions of source code must retain the above copyright
@@ -26,15 +29,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 @font-face {
-  font-family: 'PT Serif';
+  font-family: 'Arial';
   font-style: normal;
   font-weight: normal;
-  src: local('PT Serif'), local('PTSerif-Regular'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/sDRi4fY9bOiJUbgq53yZCXYhjbSpvc47ee6xR_80Hnw.woff') format('woff');
 }
+
+/*  src: local('PT Serif'), local('PTSerif-Regular'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/sDRi4fY9bOiJUbgq53yZCXYhjbSpvc47ee6xR_80Hnw.woff') format('woff'); */
 
 body {
 	color: #000;
-	font: 14px/1.8em "PT Serif", Georgia, "Times New Roman", Times, serif;
+	font: 14px/1.8em "Arial", Georgia, "Times New Roman", Times, serif;
 	padding-top: 4.236em;
 	padding-bottom: 2.618em;
 	-webkit-font-smoothing: antialiased;
@@ -61,6 +65,15 @@ h3 {
 	font-size: 4.236em;
 	line-height: 1.618em;
 	text-align: center;
+}
+
+h1.blogfeed {
+	text-align: center;
+}
+
+a.blogfeed {	
+	color: #000;
+	text-decoration: none;
 }
 
 article {

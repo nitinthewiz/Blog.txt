@@ -27,9 +27,9 @@
 */
 	
 	header("Content-Type: text/xml;charset=iso-8859-1");
-
-	include("includes/functions.php");
-	include("config.php");
+	require_once("includes/posts.php");
+	require_once("includes/functions.php");
+	require_once("config.php");
 	
 	$posts = glob( $dir . '/*.txt' );	//	Only files that end in .txt in te $dir directory
 	usort($posts, recentPost);	//	Sorts list of .txt files by their Date (recent first)
